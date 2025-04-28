@@ -81,7 +81,7 @@ def enable_verbose_ffmpeg_log_level(ctx, param, value):
 # The opus codec only supports an output sample_rate of 48kHz
 def validate_sample_rate_for_codec(ctx, param, value):
     if param.name == "sample_rate":
-        value = SampleRate(int(value))
+        value = SampleRate(value)
 
     def _do_validate(codec: Codec, sample_rate: SampleRate):
         if codec == Codec.OPUS and sample_rate != SampleRate.Hz48000:

@@ -44,10 +44,10 @@ def common_options(func):
     )
     @click.option(
         "--sample-rate",
-        default=str(SampleRate.Hz44100),
+        default=SampleRate.Hz44100,
         callback=validate_sample_rate_for_codec,
         help="The sample rate to use for the output.",
-        type=click.Choice([str(s.value) for s in SampleRate]),
+        type=click.Choice([s.value for s in SampleRate]),
     )
     @click.option(
         "--drum-stem-label",
